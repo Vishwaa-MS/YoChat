@@ -24,12 +24,12 @@ const Homepage = () => {
         m="40px 0 15px 0"
         borderRadius="20px"
         borderWidth="2.5px"
-        borderColor="purple"
+        borderColor="black"
       >
         <Text
           fontFamily={"Work sans"}
           fontSize={"4xl"}
-          color={"purple"}
+          color={"black"}
           textAlign={"center"}
           fontWeight={"bold"}
         >
@@ -43,15 +43,15 @@ const Homepage = () => {
         m="40px 0 15px 0"
         borderRadius="20px"
         borderWidth="2.5px"
-        borderColor="purple"
-        color={"purple"}
+        borderColor="black"
+        color={"black"}
       >
-        <Tabs variant="soft-rounded" colorScheme="purple">
+        <Tabs variant="soft-rounded" colorScheme="gray">
           <TabList mb={"1em"}>
-            <Tab color={"purple"} width={"50%"}>
+            <Tab color={"black"} width={"50%"}>
               Login
             </Tab>
-            <Tab color={"purple"} width={"50%"}>
+            <Tab color={"black"} width={"50%"}>
               Sign Up
             </Tab>
           </TabList>
