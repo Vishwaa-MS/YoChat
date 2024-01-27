@@ -3,6 +3,6 @@
   min-height: 100vh;
   display: flex;
   background-image: url("./backgroundimg.jpeg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
 }
