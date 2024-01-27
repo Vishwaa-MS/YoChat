@@ -19,7 +19,7 @@ const Login = () => {
   };
   const submitHandler = () => {};
   return (
-    <VStack spacing={"5px"} color={"purple"}>
+    <VStack spacing={"5px"} color={"black"}>
       <FormControl id="email" isRequired>
         <FormLabel>Email</FormLabel>
         <Input
@@ -37,12 +37,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
-            <Button
-              h="1.75rem"
-              size="sm"
-              onClick={handleClick}
-              color={"purple"}
-            >
+            <Button h="1.75rem" size="sm" onClick={handleClick} color={"black"}>
               {show ? "Hide" : "Show"}
             </Button>
           </InputRightElement>
@@ -50,7 +45,7 @@ const Login = () => {
       </FormControl>
 
       <Button
-        colorScheme="purple"
+        colorScheme="gray"
         width={"100%"}
         style={{ marginTop: 15 }}
         onClick={submitHandler}

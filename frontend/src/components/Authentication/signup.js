@@ -24,7 +24,7 @@ const Signup = () => {
   const postDetails = (pics) => {};
   const submitHandler = () => {};
   return (
-    <VStack spacing={"5px"} color={"purple"}>
+    <VStack spacing={"5px"} color={"black"}>
       <FormControl id="name" isRequired>
         <FormLabel>Name</FormLabel>
         <Input
@@ -49,12 +49,7 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
-            <Button
-              h="1.75rem"
-              size="sm"
-              onClick={handleClick}
-              color={"purple"}
-            >
+            <Button h="1.75rem" size="sm" onClick={handleClick} color={"black"}>
               {show ? "Hide" : "Show"}
             </Button>
           </InputRightElement>
@@ -69,12 +64,7 @@ const Signup = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <InputRightElement width="4.5rem">
-            <Button
-              h="1.75rem"
-              size="sm"
-              onClick={handleClick}
-              color={"purple"}
-            >
+            <Button h="1.75rem" size="sm" onClick={handleClick} color={"black"}>
               {show ? "Hide" : "Show"}
             </Button>
           </InputRightElement>
@@ -92,7 +82,7 @@ const Signup = () => {
       </FormControl>
 
       <Button
-        colorScheme="purple"
+        colorScheme="gray"
         width={"100%"}
         style={{ marginTop: 15 }}
         onClick={submitHandler}
