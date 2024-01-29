@@ -5,13 +5,14 @@ const chatContext = createContext();
 
 const ChatProvider = ({ children }) => {
   const [user, setUser] = useState();
-  const history = useHistory();
+  let history = useHistory();
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    console.log("here", userInfo);
     setUser(userInfo);
 
-    if (!userInfo) {
+    if (userInfo === undefined) {
       history.push("/");
     }
   }, [history]);
