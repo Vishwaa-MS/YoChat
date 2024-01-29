@@ -5,6 +5,7 @@ const colors = require("colors");
 const userRoutes = require("./routes/userRoutes.js");
 const bodyParser = require("body-parser");
 const { notFound, errorHandler } = require("./middleware/errorHandler.js");
+const chatRoutes = require("./routes/chatRoutes.js");
 
 const app = express();
 dotenv.config();
@@ -22,11 +23,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.send("App is working");
-});
-
 app.use("/api/user", userRoutes);
+app.use("/api/chat", chatRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
