@@ -38,12 +38,6 @@ const Login = () => {
     }
 
     try {
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
-
       const { data } = await axios({
         method: "post",
         url: "http://127.0.0.1:5000/api/user/login",
@@ -61,6 +55,7 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
+      console.log(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       history.push("/chats");

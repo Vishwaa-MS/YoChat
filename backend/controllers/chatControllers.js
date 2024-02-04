@@ -63,7 +63,10 @@ const fetchChats = asyncHandler(async (req, res, next) => {
         });
         res.status(200).send(results);
       });
-  } catch (error) {}
+  } catch (error) {
+    res.status(400);
+    throw new Error(error.message);
+  }
 });
 
 const createGroupChat = asyncHandler(async (req, res, next) => {
