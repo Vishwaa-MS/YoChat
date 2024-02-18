@@ -1,5 +1,6 @@
 import { useDisclosure } from "@chakra-ui/hooks";
 import {
+  Box,
   Button,
   FormControl,
   Input,
@@ -14,6 +15,10 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { ChatState } from "../../context/chatProvider";
+import axios from "axios";
+import UserListItem from "../UserAvatar/UserListItem";
+import { Spinner } from "@chakra-ui/react";
+import UserBadgeItem from "../UserAvatar/UserBadgeItem";
 
 const GroupChatModel = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,8 +30,99 @@ const GroupChatModel = ({ children }) => {
 
   const toast = useToast();
   const { user, chats, setChats } = ChatState();
-  const handleSearch = () => {};
-  const handleSubmit = () => {};
+  const handleGroup = (userToAdd) => {
+    if (selectedUsers.includes(userToAdd)) {
+      toast({
+        title: "User Already Added",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+      return;
+    }
+
+    setSelectedUsers([...selectedUsers, userToAdd]);
+  };
+  const handleSearch = async (query) => {
+    setSearch(query);
+    if (!query) {
+      return;
+    }
+    try {
+      setLoading(true);
+      const { data } = await axios({
+        url: `http://127.0.0.1:5000/api/user?search=${search}`,
+        method: "get",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        responseType: "json",
+      });
+      console.log(data);
+      setLoading(false);
+      setSearchResult(data);
+    } catch (error) {
+      toast({
+        title: "Error fetching the chat",
+        description: error.message,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+    }
+  };
+  const handleSubmit = async () => {
+    if (!groupChatName || !selectedUsers) {
+      toast({
+        title: "Please fill all the feilds",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+    }
+    try {
+      const { data } = await axios({
+        url: `http://127.0.0.1:5000/api/chat/group`,
+        method: "post",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        data: {
+          name: groupChatName,
+          users: JSON.stringify(selectedUsers.map((u) => u._id)),
+        },
+        responseType: "json",
+      });
+      setChats([data, ...chats]);
+      onClose();
+      toast({
+        title: "New Group Chat Created!",
+
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    } catch (error) {
+      toast({
+        title: "Error creating the group chat",
+        description: error.message,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+    }
+  };
+  const handleDelete = (userToRemove) => {
+    setSelectedUsers(
+      selectedUsers.filter((sel) => sel._id !== userToRemove._id)
+    );
+  };
 
   return (
     <>
@@ -59,8 +155,28 @@ const GroupChatModel = ({ children }) => {
                 onChange={(e) => handleSearch(e.target.value)}
               />
             </FormControl>
-            {/* {Selected User} */}
-            {/* {Render Searched User} */}
+            <Box w={"100%"} display={"flex"} flexWrap={"wrap"}>
+              {selectedUsers.map((user) => (
+                <UserBadgeItem
+                  key={user._id}
+                  user={user}
+                  handleFunction={() => handleDelete(user)}
+                />
+              ))}
+            </Box>
+            {loading ? (
+              <Spinner />
+            ) : (
+              searchResult
+                ?.slice(0, 4)
+                .map((user) => (
+                  <UserListItem
+                    key={user._id}
+                    user={user}
+                    handleFunction={() => handleGroup(user)}
+                  />
+                ))
+            )}
           </ModalBody>
 
           <ModalFooter>
