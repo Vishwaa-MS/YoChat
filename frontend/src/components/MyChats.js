@@ -16,7 +16,6 @@ const MyChats = ({ fetchAgain }) => {
   const toast = useToast();
 
   const fetchChats = async (userId) => {
-    console.log(userId);
     try {
       const { data } = await axios({
         url: `http://127.0.0.1:5000/api/chat`,
@@ -87,29 +86,24 @@ const MyChats = ({ fetchAgain }) => {
       >
         {chats ? (
           <Stack overflowY="scroll">
-            {chats.map(
-              (chat) => (
-                console.log(chat),
-                (
-                  <Box
-                    onClick={() => setSelectedChat(chat)}
-                    cursor="pointer"
-                    background={SelectChat === chat ? "#38B2AC" : "#E8E8E8"}
-                    color={SelectChat === chat ? "white" : "black"}
-                    px={3}
-                    py={2}
-                    borderRadius="md"
-                    key={chat._id}
-                  >
-                    <Text>
-                      {!chat.isGroupChat
-                        ? getSender(loggedUser, chat.users)
-                        : chat.chatName}
-                    </Text>
-                  </Box>
-                )
-              )
-            )}
+            {chats.map((chat) => (
+              <Box
+                onClick={() => setSelectedChat(chat)}
+                cursor="pointer"
+                background={SelectChat === chat ? "#535C67" : "#E8E8E8"}
+                color={SelectChat === chat ? "white" : "black"}
+                px={3}
+                py={2}
+                borderRadius="md"
+                key={chat._id}
+              >
+                <Text>
+                  {!chat.isGroupChat
+                    ? getSender(loggedUser, chat.users)
+                    : chat.chatName}
+                </Text>
+              </Box>
+            ))}
           </Stack>
         ) : (
           <ChatLoading />
