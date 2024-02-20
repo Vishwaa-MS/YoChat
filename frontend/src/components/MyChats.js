@@ -11,7 +11,7 @@ import GroupChatModel from "./miscellaneous/GroupChatModel";
 
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
-  const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
+  const { SelectChat, setSelectedChat, user, chats, setChats } = ChatState();
 
   const toast = useToast();
 
@@ -45,7 +45,7 @@ const MyChats = ({ fetchAgain }) => {
   }, [fetchAgain]);
   return (
     <Box
-      d={{ base: selectedChat ? "none" : "flex", md: "flex" }}
+      d={{ base: SelectChat ? "none" : "flex", md: "flex" }}
       flexDir="column"
       alignItems="center"
       p={3}
@@ -81,30 +81,35 @@ const MyChats = ({ fetchAgain }) => {
         p={3}
         bg="#F8F8F8"
         w="100%"
-        h="100%"
+        h="90%"
         borderRadius="lg"
         overflowY="hidden"
       >
         {chats ? (
           <Stack overflowY="scroll">
-            {chats.map((chat) => (
-              <Box
-                onClick={() => setSelectedChat(chat)}
-                cursor="pointer"
-                background={selectedChat === chat ? "#38B2AC" : "#E8E8E8"}
-                color={selectedChat === chat ? "white" : "black"}
-                px={3}
-                py={2}
-                borderRadius="md"
-                key={chat._id}
-              >
-                <Text>
-                  {!chat.isGroupChat
-                    ? getSender(loggedUser, chat.users)
-                    : chat.chatName}
-                </Text>
-              </Box>
-            ))}
+            {chats.map(
+              (chat) => (
+                console.log(chat),
+                (
+                  <Box
+                    onClick={() => setSelectedChat(chat)}
+                    cursor="pointer"
+                    background={SelectChat === chat ? "#38B2AC" : "#E8E8E8"}
+                    color={SelectChat === chat ? "white" : "black"}
+                    px={3}
+                    py={2}
+                    borderRadius="md"
+                    key={chat._id}
+                  >
+                    <Text>
+                      {!chat.isGroupChat
+                        ? getSender(loggedUser, chat.users)
+                        : chat.chatName}
+                    </Text>
+                  </Box>
+                )
+              )
+            )}
           </Stack>
         ) : (
           <ChatLoading />
