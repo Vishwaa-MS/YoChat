@@ -24,7 +24,7 @@ import UserBadgeItem from "../UserAvatar/UserBadgeItem";
 import UserListItem from "../UserAvatar/UserListItem";
 import axios from "axios";
 
-const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
+const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [groupChatName, setGroupChatName] = useState();
   const [search, setSearch] = useState("");
@@ -69,7 +69,7 @@ const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
     } catch (error) {
       toast({
         title: "Error Occured!",
-        description: error.response.data.message,
+        description: error.response,
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -105,7 +105,7 @@ const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
       console.log(error);
       toast({
         title: "Error Occured!",
-        description: error.response,
+        description: error,
         status: "error",
         duration: 5000,
         isClosable: true,

@@ -21,6 +21,11 @@ const authUser = asyncHandler(async (req, res, next) => {
       throw new Error("Not authorized, invalid token");
     }
   }
+
+  if (!token) {
+    res.status(401);
+    throw new Error("Not authorized, no token");
+  }
 });
 
 module.exports = { authUser };

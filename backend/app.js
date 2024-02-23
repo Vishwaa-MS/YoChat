@@ -6,6 +6,7 @@ const userRoutes = require("./routes/userRoutes.js");
 const bodyParser = require("body-parser");
 const { notFound, errorHandler } = require("./middleware/errorHandler.js");
 const chatRoutes = require("./routes/chatRoutes.js");
+const messageRoutes = require("./routes/messageRoutes.js");
 
 const app = express();
 dotenv.config();
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/messages", messageRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
