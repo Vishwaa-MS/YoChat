@@ -66,6 +66,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
       //setFetchAgain(!fetchAgain);
       //fetchMessages();
       setLoading(false);
+      fetchMessages();
     } catch (error) {
       toast({
         title: "Error Occured!",
