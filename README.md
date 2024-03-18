@@ -79,7 +79,7 @@
 * Notifications
 
 # </> My Contribution To Backend:
-  Significantly I've worked on the backend of the application, 
+  Significantly I've worked on the backend of the application, From **login/signup**, to **user search**, **group chat creation, deletion and updation**, to **one - one chat**. User Autherization is done through JWT(JSON Web Token). And  Leveraged **MongoDB** for efficient storage and retrieval of user information and chat messages.
 
   * **Server Testing With PostMan**
     - **Login**
