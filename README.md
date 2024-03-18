@@ -90,7 +90,21 @@
       ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/24383f93-a023-4f4a-af5f-e890459fe1f2)
     - **Fetch Chats**
       ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/4f9bf042-3227-4039-bcd2-b6f53ea5de4d)
-      
 
+# ⚒️ Ongoing Work:
+ * Real Time Chatting
+ * Notification
+
+# 🐛Reporting Bugs:
+ * Feel free to [open an issue](https://github.com/Vishwaa-MS/YoChat/issues) on GitHub if you find any bug.
+
+# ⭐ Feature Request
+
+ * Feel free to [Open an issue](https://github.com/Vishwaa-MS/YoChat/issues) on GitHub to request any additional features you might need for your use case.
+ * Connect with me on [LinkedIn](https://www.linkedin.com/in/vishwaams/).
+ 
+# 📜 License
+
+This software is open source, licensed under the [MIT License](https://github.com/Vishwaa-MS/YoChat/blob/master/LICENSE.md).
 
 
