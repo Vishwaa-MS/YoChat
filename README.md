@@ -66,8 +66,8 @@
 * Search Users
   ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/b42ff7e8-a6d8-4b68-b49a-82c938e52044)
 
-* One to One chat
-  ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/e7a073dc-98fa-49d5-8270-f402b5f06bcc)
+* One to One Chat
+  ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/9cfba0d4-ef61-4be5-b631-06c8971eee01)
 
 * Create Group Chats
   ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/990fb33b-cf2e-4de9-9f8b-cafc68f770a0)
