@@ -7,9 +7,12 @@ import {
   isSameUser,
 } from "../config/ChatLogic";
 import { ChatState } from "../context/chatProvider";
-import { Avatar, Tooltip } from "@chakra-ui/react";
+import { Avatar } from "@chakra-ui/avatar";
+import { Tooltip } from "@chakra-ui/tooltip";
+
 const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
+
   return (
     <ScrollableFeed>
       {messages &&
@@ -34,11 +37,11 @@ const ScrollableChat = ({ messages }) => {
                 backgroundColor: `${
                   m.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
                 }`,
+                marginLeft: isSameSenderMargin(messages, m, i, user._id),
+                marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
                 borderRadius: "20px",
                 padding: "5px 15px",
                 maxWidth: "75%",
-                marginLeft: isSameSenderMargin(messages, m, i, user._id),
-                marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
               }}
             >
               {m.content}

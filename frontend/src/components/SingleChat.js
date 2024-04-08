@@ -15,8 +15,10 @@ import ProfileModel from "./miscellaneous/ProfileModel";
 import UpdateGroupChatModel from "./miscellaneous/UpdateGroupChatModel";
 import ScrollableChat from "./ScrollableChat";
 import axios from "axios";
+import "./styles.css";
+
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
-  const [messages, setMessages] = useState();
+  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState();
   const Toast = useToast();
@@ -24,7 +26,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   const fetchMessages = async () => {
     if (!SelectChat) return;
-    setLoading(false);
+    setLoading(true);
     try {
       const { data } = await axios({
         url: `http://127.0.0.1:5000/api/messages/${SelectChat._id}`,
@@ -34,10 +36,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         },
         responseType: "json",
       });
-      console.log(messages);
       setMessages(data);
       setLoading(false);
     } catch (error) {
+      console.log("ERROR FROM FETCHMSG -> ", error);
       Toast({
         title: "Error Occured!",
         description: "Failed to Load the Messages",
@@ -69,10 +71,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
           responseType: "json",
         });
-        console.log(data);
-
-        setMessages([...messages, data.content]);
+        setMessages([...messages, data]);
       } catch (error) {
+        console.log("ERROR FROM SENDMSG -> ", error);
         Toast({
           title: "Error sending the chats",
           description: error.message,
@@ -144,7 +145,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 margin={"auto"}
               />
             ) : (
-              <div className="messages">
+              <div class="messages">
                 <ScrollableChat messages={messages} />
               </div>
             )}
