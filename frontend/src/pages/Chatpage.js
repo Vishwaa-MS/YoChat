@@ -20,7 +20,9 @@ const Chatpage = () => {
         padding={"10px"}
       >
         {user && <MyChats fetchAgain={fetchAgain} />}
-        {user && <ChatBox fetchAgain={fetchAgain} />}
+        {user && (
+          <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+        )}
       </Box>
     </div>
   );

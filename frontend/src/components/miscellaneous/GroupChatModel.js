@@ -59,7 +59,6 @@ const GroupChatModel = ({ children }) => {
         },
         responseType: "json",
       });
-      console.log(data);
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
