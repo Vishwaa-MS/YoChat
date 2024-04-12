@@ -79,9 +79,11 @@
   ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/1dd67573-0795-48b9-885e-f7b4f7c8cb92)
 
 * Real Time Chatting with Typing indicators
+  ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/41aafc93-0c4e-4274-9682-d99af7caf1aa)
+
 * Notifications
 
-# </> My Contribution To Backend:
+# </> My Contribution To Backend and Testing With Postman:
   Significantly I've worked on the backend of the application, From **login/signup**, to **user search**, **group chat creation, deletion and updation**, to **one - one chat**. User Autherization is done through JWT(JSON Web Token). And  Leveraged **MongoDB** for efficient storage and retrieval of user information and chat messages.
 
   * **Server Testing With PostMan**
@@ -95,7 +97,6 @@
       ![image](https://github.com/Vishwaa-MS/YoChat/assets/93870138/4f9bf042-3227-4039-bcd2-b6f53ea5de4d)
 
 # ⚒️ Ongoing Work:
- * Real Time Chatting
  * Notification
 
 # 🐛Reporting Bugs:
