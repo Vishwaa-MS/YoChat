@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const { notFound, errorHandler } = require("./middleware/errorHandler.js");
 const chatRoutes = require("./routes/chatRoutes.js");
 const messageRoutes = require("./routes/messageRoutes.js");
+const path = require("path");
 
 const app = express();
 dotenv.config();
@@ -27,6 +28,22 @@ app.use((req, res, next) => {
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/messages", messageRoutes);
+
+// ------------------------------------DEPLOYMENT------------------------------------
+
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.get("*", (req, res, next) => {
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res, next) => {
+    res.send("API RUNNING SUCCESSFULLY");
+  });
+}
+
+// ------------------------------------DEPLOYMENT------------------------------------
 
 app.use(notFound);
 app.use(errorHandler);

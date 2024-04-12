@@ -17,8 +17,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/app.js",
-    "start-server": "node app.js"
+    "start": "node backend/app.js",
+    "start-server": "node app.js",
+    "server": "nodemon backend/app.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "vishwaa-ms",
   "license": "ISC"
