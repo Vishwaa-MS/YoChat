@@ -50,7 +50,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `http://127.0.0.1:5000/api/chat/groupremove`,
+        url: `https://yochat-2r0m.onrender.com/api/chat/groupremove`,
         method: "put",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -86,7 +86,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setRenameLoading(true);
       const { data } = await axios({
-        url: `http://127.0.0.1:5000/api/chat/renamegroup`,
+        url: `https://yochat-2r0m.onrender.com/api/chat/renamegroup`,
         method: "put",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -124,7 +124,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `http://127.0.0.1:5000/api/user?search=${search}`,
+        url: `https://yochat-2r0m.onrender.com/api/user?search=${search}`,
         method: "get",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -171,7 +171,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `http://127.0.0.1:5000/api/chat/groupadd`,
+        url: `https://yochat-2r0m.onrender.com/api/chat/groupadd`,
         method: "put",
         headers: {
           Authorization: `Bearer ${user.token}`,

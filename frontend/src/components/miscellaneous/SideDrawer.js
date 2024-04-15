@@ -57,7 +57,7 @@ const SideDrawer = () => {
       try {
         setLoading(true);
         const { data } = await axios({
-          url: `http://127.0.0.1:5000/api/user?search=${search}`,
+          url: `https://yochat-2r0m.onrender.com/api/user?search=${search}`,
           method: "get",
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -84,7 +84,7 @@ const SideDrawer = () => {
     try {
       setloadingChat(true);
       const { data } = await axios({
-        url: `http://127.0.0.1:5000/api/chat`,
+        url: `https://yochat-2r0m.onrender.com/api/chat`,
         method: "post",
         headers: {
           Authorization: `Bearer ${user.token}`,

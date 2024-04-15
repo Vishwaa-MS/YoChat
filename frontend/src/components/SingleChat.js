@@ -20,7 +20,7 @@ import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 import io from "socket.io-client";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://yochat-2r0m.onrender.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -48,7 +48,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     setLoading(true);
     try {
       const { data } = await axios({
-        url: `http://127.0.0.1:5000/api/messages/${SelectChat._id}`,
+        url: `https://yochat-2r0m.onrender.com/api/messages/${SelectChat._id}`,
         method: "get",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -109,7 +109,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       try {
         setNewMessage("");
         const { data } = await axios({
-          url: `http://127.0.0.1:5000/api/messages`,
+          url: `https://yochat-2r0m.onrender.com/api/messages`,
           method: "post",
           headers: {
             Authorization: `Bearer ${user.token}`,

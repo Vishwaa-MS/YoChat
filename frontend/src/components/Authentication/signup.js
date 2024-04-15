@@ -112,7 +112,7 @@ const Signup = () => {
 
       const { data } = await axios({
         method: "post",
-        url: "http://127.0.0.1:5000/api/user/signup",
+        url: "https://yochat-2r0m.onrender.com/api/user/signup",
         data: {
           name: name,
           email: email,

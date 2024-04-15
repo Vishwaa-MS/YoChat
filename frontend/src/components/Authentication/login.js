@@ -40,7 +40,7 @@ const Login = () => {
     try {
       const { data } = await axios({
         method: "post",
-        url: "http://127.0.0.1:5000/api/user/login",
+        url: "https://yochat-2r0m.onrender.com/api/user/login",
         data: {
           email: email,
           password: password,
